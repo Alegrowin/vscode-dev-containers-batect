@@ -1,0 +1,35 @@
+---
+containers:
+  mega-linter-cli:
+    image: nvuillam/mega-linter:v4.41.0
+    volumes:
+      - local: <{batect.project_directory}
+        container: /code
+    working_directory: /code
+    environment:
+      DEFAULT_WORKSPACE: /code
+    run_as_current_user:
+      enabled: true
+      home_directory: /home/rootless
+
+tasks:
+  mega-linter:lint:
+    description: Lint using mega-linter cli
+    group: lint-and-validate
+    run:
+      container: mega-linter-cli
+
+  mega-linter:shell:
+    description: Enter shell inside mega-linter image
+    group: shell
+    run:
+      container: mega-linter-cli
+      entrypoint: "bash"
+
+  mega-linter:clean:
+    description: Clean report folder
+    group: shell
+    run:
+      container: mega-linter-cli
+      entrypoint: bash -c
+      command: "'rm -rf ./report'"

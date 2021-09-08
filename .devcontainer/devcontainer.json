@@ -1,0 +1,30 @@
+{
+  "name": "Batect in docker",
+  "build": { "dockerfile": "Dockerfile" },
+  "runArgs": ["--init"],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+    "source=/tmp,target=/tmp,type=bind"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind,consistency=cached",
+  "workspaceFolder": "${localWorkspaceFolder}",
+  "overrideCommand": false,
+
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+    "DOCKER_BUILDKIT": "true",
+    "BATECT_ENABLE_TELEMETRY": "false"
+  },
+
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "bash": {
+        "path": "/bin/zsh"
+      }
+    }
+  },
+
+  "extensions": [],
+
+  "remoteUser": "rootless"
+}
