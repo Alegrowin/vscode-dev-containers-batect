@@ -1,6 +1,5 @@
 
-ARG VARIANT="buster"
-FROM buildpack-deps:${VARIANT}-curl
+FROM buildpack-deps:buster-curl
 
 # Options for setup script
 ARG INSTALL_ZSH="true"
