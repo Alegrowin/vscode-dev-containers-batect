@@ -13,6 +13,7 @@
   "remoteEnv": {
     "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
     "DOCKER_BUILDKIT": "true",
+    "BATECT_CACHE_DIR": "/tmp/batect-cache",
     "BATECT_ENABLE_TELEMETRY": "false"
   },
 
