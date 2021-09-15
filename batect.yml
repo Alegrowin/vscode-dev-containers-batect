@@ -1,7 +1,7 @@
 ---
 containers:
   mega-linter-cli:
-    image: nvuillam/mega-linter:v4.41.0
+    image: nvuillam/mega-linter:v4.45.0
     volumes:
       - local: <{batect.project_directory}
         container: /code
